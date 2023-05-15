@@ -1,0 +1,173 @@
+<!DOCTYPE HTML>
+<!--
+	Story by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>SIMUL Dataset</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css" integrity="sha384-3UiQGuEI4TTMaFmGIZumfRPtfKQ3trwQE2JgosJxCnGmQpL/lJdjpcHkaaFwHlcI" crossorigin="anonymous">
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper" class="divided">
+
+				<!-- One -->
+					<section class="banner style1 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right">
+						<div class="content">
+							<h1>SIMUL</h1>
+							<h2>Synchronized IMU Dataset of Walking People at Six Body Locations</h2>
+							<p class="major"></p>
+						<ul class="actions stacked">
+							<li><a href="https://github.com/simpleLoc/SIMUL-dataset" class="button">To the Dataset</a></li>
+						</ul>
+						</div>
+						<div class="image">
+							<img src="images/sensorPosHand.jpg" alt="" style="object-position: left;" />
+						</div>
+					</section>
+					
+
+				<!-- Six -->
+					<section class="wrapper style1 align-center matrix">
+						<div class="inner">
+							<h2>The Dataset in Numbers</h2>
+							<p>SIMUL was recorded in many different environments, with many different participants to be as generally useful as possible.</p>
+							<div class="items style1 medium onscroll-fade-in">
+								<section>
+									<span class="icon solid style2 major fa-walking"></span>
+									<h3>32 Participants</h3>
+									<p>The SIMUL dataset contains IMU motion recordings from 32 different participants.</p>
+								</section>
+								<section>
+									<span class="icon solid style2 major fa-stopwatch"></span>
+									<h3>550 Minutes</h3>
+									<p>In total, the SIMUL dataset contains 550 minutes of annotated IMU recordings across all participants.</p>
+								</section>
+								<section>
+									<span class="icon solid style2 major fa-hiking"></span>
+									<h3>6 Activities</h3>
+									<p>Contained in the recordings are 6 differentiated activities: Standing, Walking, Ascending/Descending Stairs, and Riding Elevator Up/Down.</p>
+								</section>
+								<section>
+									<span class="icon solid style2 major fa-shoe-prints"></span>
+									<h3>~46.8k Steps</h3>
+									<p>Across all 6 performed activities, the dataset contains 46858 steps, of which 90% which belong to the Walking activity, and 10% to Ascending/Descending Stairs.</p>
+								</section>
+								<section>
+									<span class="icon solid style2 major fa-tachometer-alt"></span>
+									<h3>6 IMU Devices</h3>
+									<p>Every recording contains data of 6 separate XSens MTw Awinda IMUs, consistently placed on strategically chosen body positions.</p>
+								</section>
+								<section>
+									<span class="icon solid style2 major fa-chart-bar"></span>
+									<h3>16 Sensor Channels</h3>
+									<p>Each of the IMUs produces 16 data channels: Accelerometer<i>(3)</i>, Free Acceleration<i>(3)</i>, Gyroscope<i>(3)</i>, Magnetic Field sensor<i>(3)</i>, Orientation quaternion<i>(4)</i>.</p>
+								</section>
+								<section>
+									<span class="icon solid style2 major fa-random"></span>
+									<h3>Time-Synchronized</h3>
+									<p>The sensor data streams are time-synchronized across all IMUs with a maximum delay of 10µs, allowing to apply labels generated in one IMUs data stream to that of another.</p>
+								</section>
+								<section>
+									<span class="icon solid style2 major fa-wave-square"></span>
+									<h3>IMUs Sampled at 80Hz</h3>
+									<p>Every sensor in the system is consistently sampled at 80Hz. With 6 IMUs and 16 dimensions per IMU, that amounts to 7680 data points per second.</p>
+								</section>
+								<section>
+									<span class="icon solid style2 major fa-tags"></span>
+									<h3>Accurate Labeling</h3>
+									<p>Every recording contains labels for the performed activity, as well as every step with start end end timestamp, allowing SIMUL to be used for Activity Recognition and Step Identification purposes.</p>
+								</section>
+							</div>
+						</div>
+					</section>
+
+				<!-- Two -->
+					<section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in">
+						<div class="content">
+							<h2>Step Labeling</h2>
+							<p>
+								A simple heuristics was employed to automatically create a first labeling proposal for every recording, that was then corrected by hand.
+								The heuristics is based on zero movement detection on the IMU data, recorded in the left and right foot position.
+								Due to the time-synchronization between all IMUs, these labels are automatically accurate for all other contained sensor streams, such as the IMU data that was recorded in hand.
+							</p>
+						</div>
+						<div class="image plotImage">
+							<img src="images/conference_101719-figure4.svg" alt="" />
+						</div>
+					</section>
+
+				<!-- Three -->
+					<section class="spotlight style1 orient-left content-align-left image-position-center onscroll-image-fade-in">
+						<div class="content">
+							<h2>Step Labeling Accuracy</h2>
+							<p>
+								To evaluate the labeling accuracy, a calibration walk was recorded using the 6 XSens MTw Awinda in the usual recording setup, accompanied by a 60fps video camera.
+								After the steps were labeled in both IMU and video data separately, the resulting labels were compared.
+								The result showed that in the calibration recording, the difference between step start timestamps between IMU and video labeling was (<span class="katex">\mu_{\textrm{s}}=-103\textrm{ms}</span>, <span class="katex">\sigma_{\textrm{s}}=24\textrm{ms}</span>) while the difference for the end timestamps were (<span class="katex">\mu_{\textrm{e}}=99\textrm{ms}</span>, <span class="katex">\sigma_{\textrm{e}}=30\textrm{ms}</span>).
+								An effect that can be attributed to the higher accuracy in the IMU data, compared to the optical evaluation of movements in the video.
+								However, when comparing the center timestamp of every step, calculated by <span class="katex">\frac{s^{\textrm{start}} + s^{\textrm{end}}}{2}</span>, the difference: <span class="katex">\mu_{\textrm{c}}=-1.9\textrm{ms}</span>, <span class="katex">\sigma_{\textrm{c}}=17.1\textrm{ms}</span> was close to 0 and showed a standard deviation close to the sampling interval of 60fps.
+							</p>
+						</div>
+						<div class="image plotImage">
+							<img src="images/conference_101719-figure3.svg" alt="" style="object-fit: contain;" />
+						</div>
+					</section>
+					
+				<!-- Three -->
+					<section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in">
+						<div class="content">
+							<h2>IMU Positioning</h2>
+							<p>
+								For recording, the 6 synchronized XSens MTw Awinda IMUs were positioned on 6 strategically chosen locations on the body of every participant.
+								Two IMUs were fixed on each participant's shoes. Those are the datasource for the automatic step labeling based on the heuristics described above.
+								Furthermore, two IMUs were placed in the left and right front trouser pocket, and one in a back trouser pocket.
+								The last of the six sensors was carried in hand, as if it were a smartphone running a navigation app with directions.
+							</p>
+						</div>
+						<div class="image">
+							<img src="images/sensorPosFeet.jpg" alt="" />
+						</div>
+					</section>
+
+				<!-- Footer -->
+					<footer class="wrapper style1 align-center">
+						<div class="inner">
+							<ul class="icons">
+								<li><a href="https://github.com/simpleLoc/SIMUL-dataset" class="icon brands style2 fa-github"><span class="label">GitHub</span></a></li>
+							</ul>
+							<p>&copy; SIMUL-Dataset. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+						</div>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+			<script src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.js" integrity="sha384-G0zcxDFp5LWZtDuRMnBkk3EphCK1lhEf4UEyEM693ka574TZGwo4IWwS6QLzM/2t" crossorigin="anonymous"></script>
+			<script>
+				const mathElements = document.querySelectorAll('span.katex');
+				const macros = {};
+				for (let element of mathElements) {
+					katex.render(element.textContent, element, {
+						throwOnError: false,
+						macros
+					});
+				}
+			</script>
+
+	</body>
+</html>
