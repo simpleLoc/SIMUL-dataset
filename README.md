@@ -8,7 +8,7 @@ This work presents [SIMUL](https://simpleloc.github.io/SIMUL-dataset/), a new da
 CSV-Files contain the raw data of a recording.
 Columns:
 - **Timestamp**: Timestamp in seconds when the sample was recorded
-- **Activity**: Activity that was performed when capturing this sample
+- **Activity**: Activity that was performed when capturing this sample. The activities are standing (0), walking (1), stairs up (2), stairs down(3), elevator up (4) and elevator down (5) as soon as the elevator starts moving
 - **Accel{X,Y,Z}_**$n$: Accelerometer readings in the direction of the {x,y,z}-axis of the n-th IMU
 - **FreeAccel{X,Y,Z}_**$n$: Gravity-free accelerometer readings in the direction of the {x,y,z}-axis of the n-th IMU
 - **Gyro{X,Y,Z}_**$n$: Angular rate around the {x,y,z}-axis of the n-th IMU
